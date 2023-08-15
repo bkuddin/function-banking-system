@@ -13,7 +13,21 @@ document.getElementById('withdraw-button').addEventListener('click', function(){
     // Calculate 
 
     const currentWithdrawTotal = withdrawPreviousDisplayValue + withdrawNewInputValue;
+    // Set
     withdrawDisplay.innerText = currentWithdrawTotal;
 
+
+    // Subtract the Withdrawal Amount from the Total Deposit Balance.
+    // Bring Total Deposit  Balance
+    const depositTotalBalance = document.getElementById('deposit-total-balance');
+    let depositTotalBalancePreviousValue = depositTotalBalance.innerText;
+    depositTotalBalancePreviousValue = parseFloat(depositTotalBalancePreviousValue);
+
+    //  Calculate 
+
+    const currentTotalDepositBalance = depositTotalBalancePreviousValue - withdrawNewInputValue;
+
+    // Set 
+    depositTotalBalance.innerText = currentTotalDepositBalance;
 
 })
