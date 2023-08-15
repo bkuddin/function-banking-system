@@ -6,6 +6,10 @@ document.getElementById('withdraw-button').addEventListener('click', function(){
 
     withdrawInput.value = '';
 
+    if(isNaN(withdrawNewInputValue)){
+        alert('Type a number here');
+    }
+
     const withdrawDisplay = document.getElementById('withdraw-display');
     let withdrawPreviousDisplayValue = withdrawDisplay.innerText;
     withdrawPreviousDisplayValue = parseFloat(withdrawPreviousDisplayValue)
