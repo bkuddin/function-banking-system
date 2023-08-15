@@ -28,6 +28,11 @@ document.getElementById('withdraw-button').addEventListener('click', function(){
     let depositTotalBalancePreviousValue = depositTotalBalance.innerText;
     depositTotalBalancePreviousValue = parseFloat(depositTotalBalancePreviousValue);
 
+    if(withdrawNewInputValue > depositTotalBalancePreviousValue ){
+        alert('Not enough funds to make a withdrawal at this time');
+        return;
+    }
+
     //  Calculate 
 
     const currentTotalDepositBalance = depositTotalBalancePreviousValue - withdrawNewInputValue;
