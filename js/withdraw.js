@@ -8,6 +8,7 @@ document.getElementById('withdraw-button').addEventListener('click', function(){
 
     if(isNaN(withdrawNewInputValue)){
         alert('Type a number here');
+        return;
     }
 
     const withdrawDisplay = document.getElementById('withdraw-display');

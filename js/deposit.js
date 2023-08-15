@@ -7,6 +7,11 @@ document.getElementById('deposit-button').addEventListener('click', function(){
 
    takeDepositInput.value= '';
 
+   if(isNaN(takeDepositNewInput)){
+      alert('Type a number here');
+      return;
+  }
+
     //2. Deposit Previous Number
     const depositPreviousTotal = document.getElementById('deposit-total');
     let depositPreviousTotalValue = depositPreviousTotal.innerText;
