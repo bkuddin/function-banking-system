@@ -1,40 +1,53 @@
+function getInputValueByID(inputId){
+   const inputValue = document.getElementById(inputId);
+   let newInputValue = inputValue.value;
+   newInputValue = parseFloat(newInputValue);
+  
+   inputValue.value = '';
+
+   return newInputValue;
+}
+
+
+function getPreviousTextElementById(elementId){
+   const previousTextElement = document.getElementById(elementId);
+   let previousTextElementValue = previousTextElement.innerText;
+   previousTextElementValue = parseFloat(previousTextElementValue);
+
+   return previousTextElementValue;
+}
+
+// Set: Two things are needed here. 1. We have to get to the element I want to set. 2. The new value I want to set.
+
+function setTextElementValueByID(elementId, newValue){
+   const previousTextElement = document.getElementById(elementId);
+   previousTextElement.innerText = newValue;
+
+}
+
+// Functions Call
 document.getElementById('deposit-button').addEventListener('click', function(){
-   //1. Deposit Input Field   
-   const takeDepositInput = document.getElementById('deposite-input-field');
-   let takeDepositNewInput = takeDepositInput.value;
-   takeDepositNewInput = parseFloat(takeDepositNewInput)
-//    console.log(takeDepositNewInput)  
+   // Function Call: Get Input Value By ID
+   const newDepositAmount = getInputValueByID('deposite-input-field');  
+   // Function Call: Get Previous Value by ID
+   const previousDepositTotal = getPreviousTextElementById('deposit-total');
 
-   takeDepositInput.value= '';
+   // 3. Calculation
+   const currentDeposit = newDepositAmount + previousDepositTotal;
 
-   if(isNaN(takeDepositNewInput)){
-      alert('Type a number here');
-      return;
-  }
+   // 4. Function Call: Set Deposit Total
+   
+   setTextElementValueByID('deposit-total', currentDeposit )
 
-    //2. Deposit Previous Number
-    const depositPreviousTotal = document.getElementById('deposit-total');
-    let depositPreviousTotalValue = depositPreviousTotal.innerText;
-    depositPreviousTotalValue = parseFloat(depositPreviousTotalValue);
-    // console.log(depositPreviousTotalValue)
-    
-    // 3. Calculation
-    const currentDeposit = takeDepositNewInput + depositPreviousTotalValue;
-    // 4. Setup
-    depositPreviousTotal.innerText = currentDeposit;
+   // 5. Get Previous Total Balance using the Function
+   
+   const depositPreviousTotalBalance = getPreviousTextElementById('deposit-total-balance');
 
-    // 5. Deposit Total Balance
+   // 6. Calculate Current Total Deposit Balance
 
-    const depositTotalBalance = document.getElementById('deposit-total-balance');
-    let depositTotalBalancePreviousValue = depositTotalBalance.innerText;
-    depositTotalBalancePreviousValue = parseFloat(depositTotalBalancePreviousValue);
+   const currentDepositTotalBalance = depositPreviousTotalBalance + newDepositAmount;
 
-    // Calculate Current Total Deposit Balance
-
-    const currentDepositTotalBalance = depositTotalBalancePreviousValue + takeDepositNewInput;
-    depositTotalBalance.innerText = currentDepositTotalBalance 
-    
-
-
+   // 7. Function Call for: Set Current DepositTotal Balance
+   setTextElementValueByID('deposit-total-balance', currentDepositTotalBalance )
 
 })

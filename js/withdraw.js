@@ -15,11 +15,7 @@ document.getElementById('withdraw-button').addEventListener('click', function(){
     let withdrawPreviousDisplayValue = withdrawDisplay.innerText;
     withdrawPreviousDisplayValue = parseFloat(withdrawPreviousDisplayValue)
 
-    // Calculate 
-
-    const currentWithdrawTotal = withdrawPreviousDisplayValue + withdrawNewInputValue;
-    // Set
-    withdrawDisplay.innerText = currentWithdrawTotal;
+    
 
 
     // Subtract the Withdrawal Amount from the Total Deposit Balance.
@@ -32,6 +28,12 @@ document.getElementById('withdraw-button').addEventListener('click', function(){
         alert('Not enough funds to make a withdrawal at this time');
         return;
     }
+
+    // Calculate 
+
+    const currentWithdrawTotal = withdrawPreviousDisplayValue + withdrawNewInputValue;
+    // Set
+    withdrawDisplay.innerText = currentWithdrawTotal;
 
     //  Calculate 
 
