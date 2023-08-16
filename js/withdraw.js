@@ -1,7 +1,7 @@
 
 
 
-function getInputValueByID(inputId){
+function getInputValueById(inputId){
     const newInput = document.getElementById(inputId);
     let newInputValue = newInput.value;
     newInputValue = parseFloat(newInputValue);
@@ -11,7 +11,7 @@ function getInputValueByID(inputId){
 
 }
 
-function getTextElementValue(elementId){
+function getTextElementValueById(elementId){
     const withdrawTextElement = document.getElementById(elementId);
     let withdrawPreviousTextValue = withdrawTextElement.innerText;
     withdrawPreviousTextValue = parseFloat(withdrawPreviousTextValue)
@@ -19,17 +19,28 @@ function getTextElementValue(elementId){
     return withdrawPreviousTextValue;
 }
 
+function setTextElementValueById(elementId, newValue){
+    const previousTextElement = document.getElementById(elementId);
+    previousTextElement.innerText = newValue;   
+
+}
+
 // All Functions Call in Event
 
 document.getElementById('withdraw-button').addEventListener('click', function(){
 // Function Call:  Get Withdraw input Field Value 
-  const withdrawInput = getInputValueByID('withdraw-input-field');
+  const withdrawInputAmount = getInputValueById('withdraw-input-field');
 
 // Function Call: Get Withdraw Text Field Value
 
-  const withdrawText = getTextElementValue('withdraw-display');
+  const withdrawTextAmount = getTextElementValueById('withdraw-display');
 
+//  Calculation
+  const totalWithdraw = withdrawInputAmount + withdrawTextAmount;
 
+// Function Call: Set 
+
+  setTextElementValueById('withdraw-display', totalWithdraw);
 
 
 })
