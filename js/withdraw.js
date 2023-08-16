@@ -1,6 +1,3 @@
-
-
-
 function getInputValueById(inputId){
     const newInput = document.getElementById(inputId);
     let newInputValue = newInput.value;
@@ -28,19 +25,31 @@ function setTextElementValueById(elementId, newValue){
 // All Functions Call in Event
 
 document.getElementById('withdraw-button').addEventListener('click', function(){
-// Function Call:  Get Withdraw input Field Value 
+// 1. Function Call:  Get Withdraw input Field Value 
   const withdrawInputAmount = getInputValueById('withdraw-input-field');
 
-// Function Call: Get Withdraw Text Field Value
+// 2. Function Call: Get Withdraw Text Field Value
 
   const withdrawTextAmount = getTextElementValueById('withdraw-display');
 
-//  Calculation
+// 3. Calculation
   const totalWithdraw = withdrawInputAmount + withdrawTextAmount;
 
-// Function Call: Set 
+// 4. Function Call: Set 
 
   setTextElementValueById('withdraw-display', totalWithdraw);
+
+// 5. Get Previous Total Balance using the Function
+   
+const depositPreviousTotalBalance = getTextElementValueById('deposit-total-balance');
+
+// 6. Calculate Current Total Deposit Balance
+
+   const currentDepositTotalBalance = depositPreviousTotalBalance - withdrawInputAmount;
+
+// 7. Function Call: Set 
+
+setTextElementValueById('deposit-total-balance', currentDepositTotalBalance);
 
 
 })
