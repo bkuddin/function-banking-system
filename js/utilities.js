@@ -24,3 +24,34 @@ function getInputValueByID(inputId){
     previousTextElement.innerText = newValue;
  
  }
+
+//  All Withdraw Functions 
+//  All Withdraw Functions 
+//  All Withdraw Functions 
+//  All Withdraw Functions 
+//  All Withdraw Functions 
+//  All Withdraw Functions 
+
+function getInputValueById(inputId){
+    const newInput = document.getElementById(inputId);
+    let newInputValue = newInput.value;
+    newInputValue = parseFloat(newInputValue);
+    newInput.value = '';
+    
+    return newInputValue;
+
+}
+
+function getTextElementValueById(elementId){
+    const withdrawTextElement = document.getElementById(elementId);
+    let withdrawPreviousTextValue = withdrawTextElement.innerText;
+    withdrawPreviousTextValue = parseFloat(withdrawPreviousTextValue)
+
+    return withdrawPreviousTextValue;
+}
+
+function setTextElementValueById(elementId, newValue){
+    const previousTextElement = document.getElementById(elementId);
+    previousTextElement.innerText = newValue;   
+
+}
